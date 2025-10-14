@@ -1,6 +1,7 @@
 ---
 title: Welcome
 slug: welcome
+category: Guides
 ---
 
 # Introdução

@@ -29,7 +29,7 @@ jobs:
           for doc in docs/specs/*/index.yaml; do
             service_name=$(basename "$(dirname "$doc")")
             echo "→ Sending $service_name"
-            npx rdme openapi upload "$doc" \
+            npx rdme openapi upload "$doc" --bundle \
               --key="$README_API_KEY" \
               --slug="$service_name"
           done
