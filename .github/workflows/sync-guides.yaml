@@ -29,5 +29,5 @@ jobs:
           echo "📘 Uploading guides to ReadMe..."
           for guide in docs/guides/*.md; do
             echo "→ Sending $guide"
-            npx rdme docs upload "$guide" --bundle --key="$README_API_KEY" --version="$README_VERSION"
+            npx rdme docs upload "$guide" --key="$README_API_KEY" --version="$README_VERSION"
           done
