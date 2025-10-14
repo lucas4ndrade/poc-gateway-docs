@@ -1,7 +1,7 @@
 ---
 title: Welcome
 slug: welcome
-category: Guides
+category: documentation
 ---
 
 # Introdução
