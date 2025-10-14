@@ -1,0 +1,39 @@
+name: Validate Docs Consistency
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-docs:
+    name: Validate documentation consistency
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate docs for each service
+        run: |
+          echo "🔍 Validating that each service has its documentation..."
+          failed=0
+
+          for service_file in kong/services/*.yaml; do
+            service_name=$(basename "$service_file" .yaml)
+            doc_path="docs/$service_name/index.yaml"
+
+            if [ ! -f "$doc_path" ]; then
+              echo "❌ Missing documentation for service: $service_name"
+              failed=1
+            else
+              echo "✅ $service_name has documentation"
+            fi
+          done
+
+          if [ "$failed" -ne 0 ]; then
+            echo "❌ Some services are missing documentation. Please add the corresponding /docs/<service>/index.yaml files."
+            exit 1
+          fi
+
+          echo "✨ All services have matching documentation!"

@@ -1,0 +1,36 @@
+name: Sync API Specs to ReadMe
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload-api-specs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install ReadMe CLI
+        run: npm install -g @readme/cli
+
+      - name: Upload OpenAPI specs to ReadMe
+        env:
+          README_API_KEY: ${{ secrets.README_API_KEY }}
+          README_PROJECT_ID: ${{ secrets.README_PROJECT_ID }}
+        run: |
+          echo "📤 Uploading OpenAPI specs to ReadMe..."
+          for doc in docs/specs/*/index.yaml; do
+            service_name=$(basename "$(dirname "$doc")")
+            echo "→ Sending $service_name"
+            npx rdme openapi "$doc" \
+              --key="$README_API_KEY" \
+              --id="$README_PROJECT_ID"
+          done

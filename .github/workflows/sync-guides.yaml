@@ -1,0 +1,33 @@
+name: Sync Guides to ReadMe
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload-guides:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install ReadMe CLI
+        run: npm install -g @readme/cli
+
+      - name: Upload Guides to ReadMe
+        env:
+          README_API_KEY: ${{ secrets.README_API_KEY }}
+          README_VERSION: "1.0"
+        run: |
+          echo "📘 Uploading guides to ReadMe..."
+          for guide in docs/guides/*.md; do
+            echo "→ Sending $guide"
+            npx rdme docs "$guide" --key="$README_API_KEY" --version="$README_VERSION"
+          done
