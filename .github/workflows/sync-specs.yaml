@@ -31,6 +31,5 @@ jobs:
             echo "→ Sending $service_name"
             npx rdme openapi upload "$doc" \
               --key="$README_API_KEY" \
-              --branch=main \
               --slug="$service_name"
           done
