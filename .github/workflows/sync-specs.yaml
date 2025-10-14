@@ -26,10 +26,12 @@ jobs:
           README_API_KEY: ${{ secrets.README_API_KEY }}
         run: |
           echo "📤 Uploading OpenAPI specs to ReadMe..."
-          for doc in docs/specs/*/index.yaml; do
-            service_name=$(basename "$(dirname "$doc")")
+          for service_dir in docs/specs/*; do
+            service_name=$(basename "$service_dir")
             echo "→ Sending $service_name"
-            npx rdme openapi upload "$doc" \
+            cd "$service_dir"
+            npx rdme openapi upload index.yaml \
               --key="$README_API_KEY" \
               --slug="$service_name"
+            cd - > /dev/null
           done
