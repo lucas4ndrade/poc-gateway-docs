@@ -1,0 +1,17 @@
+openapi: 3.0.3
+info:
+  title: Mock API
+  version: 1.0.0
+
+paths:
+  /mock:
+    get:
+      summary: Retorna um JSON de mock
+      operationId: getMock
+      responses:
+        '200':
+          description: Retorna um objeto com mock=true
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/response.yaml'

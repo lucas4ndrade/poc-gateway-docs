@@ -5,7 +5,7 @@ info:
   description: |
     API do serviço **my-other-service**, configurado no gateway do Kong.
 servers:
-  - url: https://api.exemplo.com/my-other-service
+  - url: https://api.exemplo.com/my-other-service-test
 paths:
   /:
     get:

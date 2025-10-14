@@ -1,0 +1,7 @@
+type: object
+properties:
+  mock:
+    type: boolean
+    example: true
+required:
+  - mock
