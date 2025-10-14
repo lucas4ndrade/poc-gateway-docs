@@ -24,7 +24,6 @@ jobs:
       - name: Upload OpenAPI specs to ReadMe
         env:
           README_API_KEY: ${{ secrets.README_API_KEY }}
-          README_PROJECT_ID: ${{ secrets.README_PROJECT_ID }}
         run: |
           echo "📤 Uploading OpenAPI specs to ReadMe..."
           for doc in docs/specs/*/index.yaml; do
@@ -32,7 +31,6 @@ jobs:
             echo "→ Sending $service_name"
             npx rdme openapi upload "$doc" \
               --key="$README_API_KEY" \
-              --id="$README_PROJECT_ID" \
               --branch=main \
               --slug="$service_name"
           done
