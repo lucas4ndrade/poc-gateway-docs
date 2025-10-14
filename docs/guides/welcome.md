@@ -1,7 +1,8 @@
 ---
 title: Welcome
 slug: welcome
-category: documentation
+category:
+  uri: WELCOME
 ---
 
 # Introdução
