@@ -19,7 +19,7 @@ jobs:
           node-version: 20
 
       - name: Install ReadMe CLI
-        run: npm install -g @readme/cli
+        run: npm install -g rdme
 
       - name: Upload Guides to ReadMe
         env:
