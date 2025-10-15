@@ -19,9 +19,9 @@ jobs:
           echo "🔍 Validating that each service has its documentation..."
           failed=0
 
-          for service_file in kong/services/*.yaml; do
+          for service_file in services/*.yaml; do
             service_name=$(basename "$service_file" .yaml)
-            doc_path="docs/$service_name/index.yaml"
+            doc_path="docs/specs/$service_name/index.yaml"
 
             if [ ! -f "$doc_path" ]; then
               echo "❌ Missing documentation for service: $service_name"
@@ -32,7 +32,7 @@ jobs:
           done
 
           if [ "$failed" -ne 0 ]; then
-            echo "❌ Some services are missing documentation. Please add the corresponding /docs/<service>/index.yaml files."
+            echo "❌ Some services are missing documentation. Please add the corresponding /docs/specs/<service>/index.yaml files."
             exit 1
           fi
 
