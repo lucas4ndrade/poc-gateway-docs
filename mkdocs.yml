@@ -1,0 +1,6 @@
+site_name: "My Docs Title"
+ 
+nav:
+  - Home: welcome.md
+  - Specs: 
+      - Table: table.md

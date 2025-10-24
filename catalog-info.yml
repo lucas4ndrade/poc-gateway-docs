@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: 'banking-gateway'
+  namespace: banking
+  description: 'Catalogo temporário de testes do banking api gateway'
+  tags:
+    - banking-integrar-bis-devs
+    - banking
+  links:
+    - url: 'https://allstone.atlassian.net/wiki/spaces/BCT/pages/6519064635/Sistema+de+Notifica+o+para+Parceiros'
+      title: 'Documentação do Projeto'
+  annotations:
+    backstage.io/techdocs-ref: dir:.
