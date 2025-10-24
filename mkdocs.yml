@@ -1,6 +1,6 @@
-site_name: "My Docs Title"
+site_name: "Banking API Gateway"
  
 nav:
-  - Home: welcome.md
+  - Home: index.md
   - Specs: 
       - Table: table.md

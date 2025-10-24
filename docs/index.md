@@ -1,10 +1,3 @@
----
-title: Welcome
-slug: welcome
-category:
-  uri: WELCOME
----
-
 # Introdução
 
 Bem-vindo ao **Gateway do Kong da nossa organização** 👋
