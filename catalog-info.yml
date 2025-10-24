@@ -12,3 +12,7 @@ metadata:
       title: 'Documentação do Projeto'
   annotations:
     backstage.io/techdocs-ref: dir:.
+spec:
+  type: backend
+  lifecycle: experimental
+  owner: stone-payments/banking-integrar
