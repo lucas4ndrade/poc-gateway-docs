@@ -16,3 +16,5 @@ spec:
   type: backend
   lifecycle: experimental
   owner: stone-payments/banking-integrar
+  providesApis:
+    - banking-notification-worker-webhook-p0
